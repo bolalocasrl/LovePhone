@@ -25,20 +25,20 @@
 
 :root {
   /* Swiss Style / Minimalist Palette */
-  --background: 0 0% 100%; /* White */
+  --background: 34 50% 96%; /* #fff6ea */
   --foreground: 0 0% 10%; /* Near Black */
   
-  --primary: 0 0% 10%; /* Black for primary actions */
+  --primary: 358 71% 43%; /* #bd2025 - Red for primary actions */
   --primary-foreground: 0 0% 100%; /* White text */
   
-  --muted: 0 0% 96%; /* Very light gray for backgrounds */
+  --muted: 34 30% 92%; /* Slightly darker cream for backgrounds */
   --muted-foreground: 0 0% 40%; /* Gray text */
   
-  --accent: 0 0% 92%; /* Slightly darker gray for hover/secondary */
+  --accent: 34 30% 90%; /* Darker cream for hover/secondary */
   --accent-foreground: 0 0% 10%;
   
-  --border: 0 0% 90%;
-  --input: 0 0% 90%;
+  --border: 358 71% 43%; /* Red border */
+  --input: 358 71% 43%;
   
   --radius: 0px; /* Sharp corners for modern look */
 }
