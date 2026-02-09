@@ -1,9 +1,19 @@
-import { Phone, Battery, Smartphone, Wrench, MapPin, Clock, ArrowRight } from "lucide-react";
+import { Phone, Battery, Smartphone, Wrench, MapPin, Clock, ArrowRight, Heart } from "lucide-react";
 import heroImage from "@/assets/Lovephone.jpeg";
 import locationMap from "@/assets/location-map.png";
 import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [showHeart, setShowHeart] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowHeart(prev => !prev);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact');
     if (contactSection) {
@@ -40,7 +50,14 @@ export default function Home() {
                 <div className="space-y-4">
                   <h1 className="text-4xl font-display font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl leading-[0.9]">
                     YOUR PHONE <br />
-                    <span className="text-muted-foreground">DESERVES LOVE.</span>
+                    DESERVES{' '}
+                    <span className="text-primary inline-flex items-center min-w-[120px] transition-all duration-500 ease-in-out">
+                      {showHeart ? (
+                        <Heart className="inline h-[0.8em] w-[0.8em] fill-current animate-in fade-in zoom-in duration-500" />
+                      ) : (
+                        <span className="animate-in fade-in duration-500">LOVE.</span>
+                      )}
+                    </span>
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
                     Professional smartphone repair in the heart of Salamanca, Madrid. 
@@ -74,7 +91,7 @@ export default function Home() {
                  <img 
                   src={heroImage} 
                   alt="Love Phone Goya Storefront" 
-                  className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                  className="object-cover w-full h-full transition-all duration-700 ease-in-out"
                 />
                 <div className="absolute inset-0 border border-border/10"></div>
               </div>
@@ -174,32 +191,25 @@ export default function Home() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <div className="flex flex-col gap-4">
-                <div className="w-full h-[300px] bg-muted border border-border relative group overflow-hidden">
-                  <div className="absolute inset-0 bg-[url('https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/15/16145/12437.png')] bg-cover bg-center grayscale opacity-60 group-hover:grayscale-0 transition-all duration-500"></div>
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className="bg-primary text-white px-4 py-2 text-sm font-bold shadow-xl">
-                      📍 WE ARE HERE
-                    </div>
-                  </div>
-                  <a 
-                    href="https://www.google.com/maps/search/?api=1&query=Calle+de+Goya+113+Madrid" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="absolute inset-0 z-10"
-                    aria-label="Open Map"
-                  ></a>
+              {/* Map/Location */}
+              <div className="w-full h-[400px] bg-muted border border-border relative group overflow-hidden">
+                <img 
+                  src={locationMap} 
+                  alt="Map Location of Love Phone Goya" 
+                  className="object-cover w-full h-full opacity-60 group-hover:opacity-100 transition-opacity duration-500"
+                />
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-20">
+                   <div className="bg-primary text-white px-4 py-2 text-sm font-bold shadow-xl">
+                     📍 WE ARE HERE
+                   </div>
                 </div>
-                
-                {/* Location Image */}
-                <div className="w-full aspect-video bg-muted border border-border overflow-hidden">
-                   <img 
-                    src={locationMap} 
-                    alt="Map Location of Love Phone Goya" 
-                    className="object-cover w-full h-full hover:scale-105 transition-transform duration-500"
-                  />
-                </div>
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Calle+de+Goya+113+Madrid" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 z-10"
+                  aria-label="Open Map"
+                ></a>
               </div>
             </div>
           </div>
