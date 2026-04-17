@@ -1,6 +1,7 @@
 import { Phone, Battery, Smartphone, Wrench, MapPin, Clock, ArrowRight, Heart } from "lucide-react";
 import heroImage from "@/assets/Lovephone.jpeg";
 import locationMap from "@/assets/location-map.png";
+import logoImage from "@assets/LogoLovePhone_1776460582851.png";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 
@@ -26,8 +27,11 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed top-0 w-full z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          <div className="font-display font-bold text-xl tracking-tighter">
-            LOVE PHONE GOYA
+          <div className="flex items-center gap-3">
+            <img src={logoImage} alt="Love Phone Logo" className="h-8 md:h-10 w-auto" />
+            <div className="font-display font-bold text-xl tracking-tighter">
+              LOVE PHONE GOYA
+            </div>
           </div>
           <a href="tel:911429862">
             <Button className="hidden md:flex bg-primary text-primary-foreground hover:bg-primary/90 rounded-none px-6">
