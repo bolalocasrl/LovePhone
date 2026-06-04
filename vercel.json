@@ -1,4 +1,8 @@
 {
+  "buildCommand": "vite build --config vite.config.prod.ts",
+  "outputDirectory": "dist/public",
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "vite",
   "headers": [
     {
       "source": "/(.*)",
